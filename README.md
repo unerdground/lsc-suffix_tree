@@ -12,17 +12,23 @@ C++ Implementation of Longest Common Substring problem using Suffix Tree built w
 
 ## Implementation
 [Suffix Tree](https://en.wikipedia.org/wiki/Suffix_tree) is implemented with naive algorithm, where on each step new suffix of a string added to the tree.
+
 Common Substring check is implemented by checking if child node contains separator symbol.
 
 ## Usage
 To use this implementation you will need to add whole SuffixTree class to your project; Also you will need constructString method.
+
 As this code works for two strings only, it can be upgraded to infinite number of strings.
 
 Firstly, generate <string, int> pair with constructString() method, where string is first and second string divided by separator, and int is a separator position in a string;
+
 Then create new instance of suffix tree by calling class constructor with parameters obtained in previous step;
 Suffix Tree is being built on constructor call, so no need to call it again.
+
 Then call calculateCS() method of SuffixTree class.
+
 It will return array of pairs of integers, where first element is starting index of common substring and second element is ending index;
+
 calculateCS() can take a parameter; If none set, it returns all common substrings of two strings; If -1 set, it returns Longest Common Substring; Otherwise it returns all substrings longer than parameter.
 
 ## Issues
