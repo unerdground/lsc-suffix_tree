@@ -42,5 +42,7 @@ Add function to find position of common substring in second string also.
 
 ## References
 <https://marknelson.us/posts/1996/08/01/suffix-trees.html>
+
 <https://www.geeksforgeeks.org/suffix-tree-application-5-longest-common-substring-2/>
+
 <http://yury.name/internet/01ianote.pdf>
