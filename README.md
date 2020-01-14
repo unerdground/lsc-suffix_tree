@@ -1,5 +1,7 @@
 # lsc-suffix_tree
-Implementation of Longest Common Substring problem using Suffix Tree build with naive algorithm
+>If this code helped you somehow please support me
+><https://buymeacoff.ee/fWqd6hO>
+C++ Implementation of Longest Common Substring problem using Suffix Tree built with naive algorithm
 
 - [Implementation](#implementation)
 - [Usage](#usage)
@@ -35,6 +37,3 @@ Add function to find position of common substring in second string also.
 <https://marknelson.us/posts/1996/08/01/suffix-trees.html>
 <https://www.geeksforgeeks.org/suffix-tree-application-5-longest-common-substring-2/>
 <http://yury.name/internet/01ianote.pdf>
-
-If this code helped you somehow please support me
-<https://buymeacoff.ee/fWqd6hO>
