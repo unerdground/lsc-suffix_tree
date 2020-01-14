@@ -18,8 +18,8 @@ class SuffixTree {
 private:
 	Node* root;
 	string s;								// string which will be added to the tree
-	int separator_pos;						// position of separator symbol
-	vector<std::pair<int, int>> cs;			// list of all common substrings
+	unsigned int separator_pos;						// position of separator symbol
+	vector<std::pair<unsigned int, unsigned int>> cs;			// list of all common substrings
 
 protected:
 	// destructor additional method
@@ -31,7 +31,7 @@ protected:
 	}
 
 	// add child to %node% with start in %n% to the end of the string 
-	void addSuffix(int n, Node* node) {
+	void addSuffix(unsigned int n, Node* node) {
 		Node* add = new Node;
 		add->start = n;
 		add->end = s.size() - 1;
@@ -39,12 +39,12 @@ protected:
 	}
 
 	// check if symbol of string at position %child[0]% equal to symbol at position %n%
-	bool checkFirst(int n, Node* child) {
+	bool checkFirst(unsigned int n, Node* child) {
 		return s[n] == s[child->start];
 	}
 
 
-	void splitEdge(int i, int len, Node* node) {
+	void splitEdge(unsigned int i, unsigned int len, Node* node) {
 		Node* add = new Node;
 		add->start = node->start + len;
 		add->child = node->child;
@@ -56,8 +56,8 @@ protected:
 	}
 
 
-	void traverseNode(int n, Node* node) {
-		int len = 0;
+	void traverseNode(unsigned int n, Node* node) {
+		unsigned int len = 0;
 		for (unsigned int i = n; i < s.size(); i++) {
 			if (len <= node->end - node->start) {
 				if (s[i] == s[node->start + len]) ++len;
@@ -137,7 +137,7 @@ protected:
 
 public:
 	// tree builds when class constructor is called
-	SuffixTree(string init, int sep_init) {
+	SuffixTree(string init, unsigned int sep_init) {
 		s = init;
 		separator_pos = sep_init;
 		root = new Node;
@@ -145,7 +145,7 @@ public:
 	}
 
 	~SuffixTree() {
-		for (int i = 0; i < root->child.size(); i++) deleteNode(root->child[i]);
+		for (unsigned int i = 0; i < root->child.size(); i++) deleteNode(root->child[i]);
 		delete root;
 	}
 
@@ -153,7 +153,7 @@ public:
 	// and second is end index
 	// returns sequences longer than min_len; all by default
 	// -1 as an argument returns only longest common substring
-	vector<std::pair<int, int>> calculateCS(int min_len = 0) {
+	vector<std::pair<unsigned int, unsigned int>> calculateCS(int min_len = 0) {
 		for (unsigned int i = 0; i < root->child.size(); i++) {
 			inspectNode(root->child[i]);
 		}
@@ -163,8 +163,8 @@ public:
 
 		if (min_len == -1) {
 			if (cs.size() > 1) {
-				int max = cs[0].second - cs[0].first + 1;
-				int max_el = 0;
+				unsigned int max = cs[0].second - cs[0].first + 1;
+				unsigned int max_el = 0;
 				for (unsigned int i = 1; i < cs.size(); i++) {
 					if (cs[i].second - cs[i].first + 1 > max) {
 						max = cs[i].second - cs[i].first + 1;
@@ -189,17 +189,17 @@ public:
 
 // constructs string for input for building a tree
 std::pair<string, int> constructString(string s_first, string s_second) {
-	int pos = s_first.length();
+	unsigned int pos = s_first.length();
 	string res = s_first + "#" + s_second + "$";
 	return std::make_pair(res, pos);
 }
 
-bool cmpSequence(std::pair<int, int> fpair, std::pair<int, int> spair) {
+bool cmpSequence(std::pair<unsigned int, unsigned int> fpair, std::pair<unsigned int, unsigned int> spair) {
 	return (fpair.second - fpair.first > spair.second - spair.first);
 }
 
 // prints returned array
-void print(vector<std::pair<int, int>> lcs, string s, bool print_len = 0) {
+void print(vector<std::pair<unsigned int, unsigned int>> lcs, string s, bool print_len = 0) {
 	std::sort(lcs.begin(), lcs.end(), cmpSequence);
 	for (unsigned int i = 0; i < lcs.size(); i++) {
 		for (unsigned int p = lcs[i].first; p <= lcs[i].second; p++) {
@@ -218,7 +218,7 @@ int main() {
 	string s_second = "ringing";
 	auto p = constructString(s_first, s_second);
 	std::auto_ptr<SuffixTree> st(new SuffixTree(p.first, p.second));
-	print(st->calculateCS(), p.first, 1);
+	print(st->calculateCS(-1), p.first, 1);
 
 	// for futher works
 	/*std::swap(s_first, s_second);
