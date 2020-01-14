@@ -1,6 +1,7 @@
 # lsc-suffix_tree
 >If this code helped you somehow please support me
 ><https://buymeacoff.ee/fWqd6hO>
+
 C++ Implementation of Longest Common Substring problem using Suffix Tree built with naive algorithm
 
 - [Implementation](#implementation)
