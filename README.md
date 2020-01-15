@@ -20,7 +20,7 @@ To use this implementation you will need to add whole SuffixTree class to your p
 
 As this code works for two strings only, it can be upgraded to infinite number of strings.
 
-Firstly, generate <string, int> pair with constructString() method, where <string> is first and second string divided by separator, and <int> is a separator position in a string;
+Firstly, generate \<string, int\> pair with constructString() method, where \<string\> is first and second string divided by separator, and \<int\> is a separator position in a string;
 
 Then create new instance of suffix tree by calling class constructor with parameters obtained in previous step;
 Suffix Tree is being built on constructor call, so no need to call it again.
