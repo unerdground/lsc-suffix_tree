@@ -20,7 +20,7 @@ To use this implementation you will need to add whole SuffixTree class to your p
 
 As this code works for two strings only, it can be upgraded to infinite number of strings.
 
-Firstly, generate <string, int> pair with constructString() method, where string is first and second string divided by separator, and int is a separator position in a string;
+Firstly, generate <string, int> pair with constructString() method, where <string> is first and second string divided by separator, and <int> is a separator position in a string;
 
 Then create new instance of suffix tree by calling class constructor with parameters obtained in previous step;
 Suffix Tree is being built on constructor call, so no need to call it again.
@@ -34,7 +34,7 @@ calculateCS() can take a parameter; If none set, it returns all common substring
 ## Issues
 1. As each suffix of a substring is also a substring, all of them will appear in final result
 2. By now function returns only indexes of start and end of a common substring in a first string;
-So if position of a common substring in second string required you need to perform additional calculations.
+So if position of a common substring in second string required, you'll need to perform additional calculations.
 3. Naive tree building takes more than 1 second if sum of string lengths more than 5k symbols.
 
 ## Further works
