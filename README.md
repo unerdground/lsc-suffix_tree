@@ -1,6 +1,4 @@
 # lsc-suffix_tree
->If this code helped you somehow please support me
-><https://buymeacoff.ee/fWqd6hO>
 
 C++ Implementation of Longest Common Substring problem using Suffix Tree built with naive algorithm
 
@@ -35,7 +33,7 @@ calculateCS() can take a parameter; If none set, it returns all common substring
 1. As each suffix of a substring is also a substring, all of them will appear in final result
 2. By now function returns only indexes of start and end of a common substring in a first string;
 So if position of a common substring in second string required, you'll need to perform additional calculations.
-3. Naive tree building takes more than 1 second if sum of string lengths more than 5k symbols.
+3. Naive tree building is quite time consuming, so it's unhandy to use with a long strings.
 
 ## Further works
 Add function to find position of common substring in second string also.
